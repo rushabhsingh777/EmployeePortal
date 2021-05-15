@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		9B5BBAD7264FB5420004F4CB /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5BBAD6264FB5420004F4CB /* AppDelegate.swift */; };
 		9B5BBAD9264FB5420004F4CB /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5BBAD8264FB5420004F4CB /* SceneDelegate.swift */; };
-		9B5BBADB264FB5420004F4CB /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5BBADA264FB5420004F4CB /* ViewController.swift */; };
+		9B5BBADB264FB5420004F4CB /* EmployeeListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9B5BBADA264FB5420004F4CB /* EmployeeListViewController.swift */; };
 		9B5BBADE264FB5420004F4CB /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5BBADC264FB5420004F4CB /* Main.storyboard */; };
 		9B5BBAE0264FB54C0004F4CB /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 9B5BBADF264FB54C0004F4CB /* Assets.xcassets */; };
 		9B5BBAE3264FB54C0004F4CB /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 9B5BBAE1264FB54C0004F4CB /* LaunchScreen.storyboard */; };
@@ -38,7 +38,7 @@
 		9B5BBAD3264FB5420004F4CB /* EmployeePortal.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = EmployeePortal.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B5BBAD6264FB5420004F4CB /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		9B5BBAD8264FB5420004F4CB /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		9B5BBADA264FB5420004F4CB /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		9B5BBADA264FB5420004F4CB /* EmployeeListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EmployeeListViewController.swift; sourceTree = "<group>"; };
 		9B5BBADD264FB5420004F4CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		9B5BBADF264FB54C0004F4CB /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		9B5BBAE2264FB54C0004F4CB /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -101,7 +101,7 @@
 			children = (
 				9B5BBAD6264FB5420004F4CB /* AppDelegate.swift */,
 				9B5BBAD8264FB5420004F4CB /* SceneDelegate.swift */,
-				9B5BBADA264FB5420004F4CB /* ViewController.swift */,
+				9B5BBADA264FB5420004F4CB /* EmployeeListViewController.swift */,
 				9B5BBADC264FB5420004F4CB /* Main.storyboard */,
 				9B5BBADF264FB54C0004F4CB /* Assets.xcassets */,
 				9B5BBAE1264FB54C0004F4CB /* LaunchScreen.storyboard */,
@@ -258,7 +258,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9B5BBADB264FB5420004F4CB /* ViewController.swift in Sources */,
+				9B5BBADB264FB5420004F4CB /* EmployeeListViewController.swift in Sources */,
 				9B5BBAD7264FB5420004F4CB /* AppDelegate.swift in Sources */,
 				9B5BBAD9264FB5420004F4CB /* SceneDelegate.swift in Sources */,
 			);
@@ -439,6 +439,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZS5WMDAX7Z;
 				INFOPLIST_FILE = EmployeePortal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -446,7 +447,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rushabh.EmployeePortal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -458,6 +459,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZS5WMDAX7Z;
 				INFOPLIST_FILE = EmployeePortal/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -465,7 +467,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = com.rushabh.EmployeePortal;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

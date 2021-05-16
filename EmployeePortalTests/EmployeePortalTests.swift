@@ -11,7 +11,7 @@ import XCTest
 class EmployeePortalTests: XCTestCase {
     let validAddress = Address(street: "MG market", suite: "Suite 007", city: "Lachen", zipcode: "421503")
     let inValidAddress = Address(street: "", suite: "", city: "", zipcode: "")
-    
+    let company = Company(name: "Whatsapp", catchPhrase: "We respect privacy", bs: "Just kidding")
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -21,7 +21,6 @@ class EmployeePortalTests: XCTestCase {
     }
     
     func testValidEmployeeViewModel(){
-        let company = Company(name: "Whatsapp", catchPhrase: "We respect privacy", bs: "Just kidding")
         let employeeModel = EmployeeModel(id: 2, name: "Rushabh", username: "rk777", email: "rushabhsingh777@gmail.com", address: validAddress, phone: "8888888888", website: "whatsapp.com", company: company)
         let employeeViewModel = EmployeeViewModel(employee: employeeModel)
         
@@ -45,20 +44,32 @@ class EmployeePortalTests: XCTestCase {
     }
     
     func testValidEmployeeAddress(){
-        let address = Address(street: "MG market", suite: "Suite 007", city: "Lachen", zipcode: "421503")
-        let company = Company(name: "Whatsapp", catchPhrase: "We respect privacy", bs: "Just kidding")
-        let employeeModel = EmployeeModel(id: 2, name: "Rushabh", username: "rk777", email: "rushabhsingh777@gmail.com", address: address, phone: "8888888888", website: "whatsapp.com", company: company)
+        
+        let employeeModel = EmployeeModel(id: 2, name: "Rushabh", username: "rk777", email: "rushabhsingh777@gmail.com", address: validAddress, phone: "8888888888", website: "whatsapp.com", company: company)
         let employeeViewModel = EmployeeViewModel(employee: employeeModel)
         
         XCTAssertEqual(employeeViewModel.employeeCompleteAddress, "MG market Suite 007 Lachen 421503", "Address is correct")
     }
     
     func testInValidEmployeeAddress(){
+        
+        let employeeModel = EmployeeModel(id: 2, name: "Rushabh", username: "rk777", email: "rushabhsingh777@gmail.com", address: inValidAddress, phone: "8888888888", website: "whatsapp.com", company: company)
+        let employeeViewModel = EmployeeViewModel(employee: employeeModel)
+        XCTAssertEqual(employeeViewModel.employeeCompleteAddress, EmployeeConstant.notAvailable, "Address is not available")
+    }
+    
+    func testEmployeeHiringViewModel(){
         let address = Address(street: "", suite: "", city: "", zipcode: "")
         let company = Company(name: "Whatsapp", catchPhrase: "We respect privacy", bs: "Just kidding")
         let employeeModel = EmployeeModel(id: 2, name: "Rushabh", username: "rk777", email: "rushabhsingh777@gmail.com", address: address, phone: "8888888888", website: "whatsapp.com", company: company)
-        let employeeViewModel = EmployeeViewModel(employee: employeeModel)
-        XCTAssertEqual(employeeViewModel.employeeCompleteAddress, EmployeeConstant.notAvailable, "Address is not available")
+        var employeeViewModel = EmployeeViewModel(employee: employeeModel)
+        let hiringViewModel = EmployeeHiringViewModel()
+        
+        XCTAssertEqual(hiringViewModel.getHireStatus(employee:employeeViewModel), EmployeeConstant.notHired, "Employee is not hired")
+        
+        employeeViewModel.isHired = true
+    
+        XCTAssertEqual(hiringViewModel.getHireStatus(employee:employeeViewModel), EmployeeConstant.hired, "Employee is hired")
     }
 
 

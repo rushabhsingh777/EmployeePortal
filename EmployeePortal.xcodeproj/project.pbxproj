@@ -176,6 +176,7 @@
 				9B5BBB93264FFE770004F4CB /* EmployeeDetailViewController.swift */,
 				9B5BBB30264FBC400004F4CB /* EmployeeListViewDelegate.swift */,
 				9B5BBB2B264FBC2B0004F4CB /* EmployeeListViewDataSource.swift */,
+				9B6E455A2650D78D00EBEB65 /* EmployerHireButtonHandler.swift */,
 				9B5BBB94264FFE770004F4CB /* EmployeeDetailViewController.xib */,
 			);
 			path = ViewController;
@@ -223,7 +224,6 @@
 			isa = PBXGroup;
 			children = (
 				9B5BBB45264FCA9F0004F4CB /* EmployeeViewModel.swift */,
-				9B6E455A2650D78D00EBEB65 /* EmployerHireButtonHandler.swift */,
 				9B6E45642650DF2100EBEB65 /* EmployeeHiringViewModel.swift */,
 				9B6E456F2650F4E400EBEB65 /* EmployeeResourceViewModel.swift */,
 			);

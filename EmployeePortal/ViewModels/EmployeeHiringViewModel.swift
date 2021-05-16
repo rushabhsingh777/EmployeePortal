@@ -21,6 +21,7 @@ struct EmployeeHiringViewModel {
     
     func getUpdatedEmployee(employee : EmployeeViewModel) -> EmployeeViewModel {
         var updatedEmployee = employee
+        //Updating Hiring status 
         updatedEmployee.isHired = !updatedEmployee.isHired
         updatedEmployee.employeeStatus = self.getHireStatus(employee: updatedEmployee)
         return updatedEmployee

@@ -17,17 +17,35 @@ class EmployeePortalTests: XCTestCase {
     override func tearDownWithError() throws {
         // Put teardown code here. This method is called after the invocation of each test method in the class.
     }
-
-    func testExample() throws {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
+    
+    func testValidEmployeeViewModel(){
+        let address = Address(street: "MG market", suite: "Suite 007", city: "Lachen", zipcode: "421503")
+        let company = Company(name: "Whatsapp", catchPhrase: "We respect privacy", bs: "Just kidding")
+        let employeeModel = EmployeeModel(id: 2, name: "Rushabh", username: "rk777", email: "rushabhsingh777@gmail.com", address: address, phone: "8888888888", website: "whatsapp.com", company: company)
+        let employeeViewModel = EmployeeViewModel(employee: employeeModel)
+        
+        XCTAssertEqual(employeeViewModel.employeeName, employeeModel.name, "Name is correct")
+        XCTAssertEqual(employeeViewModel.employeeCompany, company.name, "employeeCompany Name is correct")
+        XCTAssertEqual(employeeViewModel.employeeCompleteAddress, "MG market Suite 007 Lachen 421503", "Address is correct")
+        XCTAssertEqual(employeeViewModel.employeeStatus, EmployeeConstant.notHired, "Employee is not hired")
+        XCTAssertEqual(employeeViewModel.employeeEmailId, employeeModel.email, "employee email is correct")
+        XCTAssertEqual(employeeViewModel.employeeCompleteAddress, "MG market Suite 007 Lachen 421503", "Address is correct")
+    }
+    
+    func testInValidEmployeeViewModel(){
+        let address = Address(street: "", suite: "", city: "", zipcode: "")
+        let company = Company(name: "", catchPhrase: "", bs: "")
+        let employeeModel = EmployeeModel(id: 2, name: "", username: "rk777", email: "rushabhsingh777@gmail.com", address: address, phone: "", website: "", company: company)
+        let employeeViewModel = EmployeeViewModel(employee: employeeModel)
+        
+        XCTAssertEqual(employeeViewModel.employeeName, EmployeeConstant.notAvailable, "Name is not available")
+        XCTAssertEqual(employeeViewModel.employeeCompany, EmployeeConstant.notAvailable, "Company name is not available")
+        XCTAssertEqual(employeeViewModel.employeeCompleteAddress, EmployeeConstant.notAvailable, "Address is not available")
+        XCTAssertEqual(employeeViewModel.employeeStatus, EmployeeConstant.notHired, "Employee is not hired")
+        XCTAssertEqual(employeeViewModel.employeeEmailId, employeeModel.email, "employee email is correct")
+        
+        XCTAssertEqual(employeeViewModel.employeeContact, EmployeeConstant.notAvailable, "Contact is not available")
     }
 
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
 
 }

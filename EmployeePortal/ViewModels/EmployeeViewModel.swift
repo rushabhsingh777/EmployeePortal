@@ -31,8 +31,8 @@ struct EmployeeViewModel {
     }
     
     static func getCompleteAddressOfEmployee(address : Address?) -> String{
-        var completeAddress = ""
         if let address = address{
+            var completeAddress = ""
             if !address.street.isEmpty{
                 completeAddress = address.street + " "
             }
@@ -45,7 +45,7 @@ struct EmployeeViewModel {
             if !address.zipcode.isEmpty{
                 completeAddress += address.zipcode
             }
-            return completeAddress
+            return completeAddress.isEmpty ? EmployeeConstant.notAvailable : completeAddress
         }
         return EmployeeConstant.notAvailable
     }

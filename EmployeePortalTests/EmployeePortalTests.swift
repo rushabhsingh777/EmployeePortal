@@ -9,9 +9,11 @@ import XCTest
 @testable import EmployeePortal
 
 class EmployeePortalTests: XCTestCase {
+    
     let validAddress = Address(street: "MG market", suite: "Suite 007", city: "Lachen", zipcode: "421503")
     let inValidAddress = Address(street: "", suite: "", city: "", zipcode: "")
     let company = Company(name: "Whatsapp", catchPhrase: "We respect privacy", bs: "Just kidding")
+    
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.
     }
@@ -58,7 +60,7 @@ class EmployeePortalTests: XCTestCase {
         XCTAssertEqual(employeeViewModel.employeeCompleteAddress, EmployeeConstant.notAvailable, "Address is not available")
     }
     
-    func testEmployeeHiringViewModel(){
+    func testEmployeeHiringViewModelForStatus(){
         let address = Address(street: "", suite: "", city: "", zipcode: "")
         let company = Company(name: "Whatsapp", catchPhrase: "We respect privacy", bs: "Just kidding")
         let employeeModel = EmployeeModel(id: 2, name: "Rushabh", username: "rk777", email: "rushabhsingh777@gmail.com", address: address, phone: "8888888888", website: "whatsapp.com", company: company)
@@ -72,5 +74,18 @@ class EmployeePortalTests: XCTestCase {
         XCTAssertEqual(hiringViewModel.getHireStatus(employee:employeeViewModel), EmployeeConstant.hired, "Employee is hired")
     }
 
+    func testEmployeeHiringViewModelForUpdatingModel(){
+        let address = Address(street: "", suite: "", city: "", zipcode: "")
+        let company = Company(name: "Whatsapp", catchPhrase: "We respect privacy", bs: "Just kidding")
+        let employeeModel = EmployeeModel(id: 2, name: "Rushabh", username: "rk777", email: "rushabhsingh777@gmail.com", address: address, phone: "8888888888", website: "whatsapp.com", company: company)
+        var employeeViewModel = EmployeeViewModel(employee: employeeModel)
+        let hiringViewModel = EmployeeHiringViewModel()
+        
+        employeeViewModel = hiringViewModel.getUpdatedEmployee(employee: employeeViewModel)
+        XCTAssertEqual(employeeViewModel.employeeStatus, EmployeeConstant.hired, "Employee is hired")
+
+        employeeViewModel = hiringViewModel.getUpdatedEmployee(employee: employeeViewModel)
+        XCTAssertEqual(employeeViewModel.employeeStatus, EmployeeConstant.notHired, "Employee is not hired")
+    }
 
 }

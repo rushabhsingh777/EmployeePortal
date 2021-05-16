@@ -38,7 +38,7 @@ class EmployeeDetailViewController: UIViewController {
     }
     
     @IBAction func hireButtonClicked(_ sender: Any) {
-        employeeDetail =  EmployeeHiringViewModel.getUpdatedEmployee(employee: employeeDetail)
+        employeeDetail =  EmployeeHiringViewModel().getUpdatedEmployee(employee: employeeDetail)
         hireButton.setTitle(employeeDetail.employeeStatus, for: .normal)
         delegate?.updateHireStatus(id: employeeDetail.employeeId)
     }

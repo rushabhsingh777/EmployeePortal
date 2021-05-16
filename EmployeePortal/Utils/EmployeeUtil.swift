@@ -9,10 +9,10 @@ import Foundation
 
 struct EmployeeUtil {
     
-static func getValidStringFrom(input : String?) -> String{
-    if let input = input{
-        return input.isEmpty ? EmployeeConstant.notAvailable : input
+    static func getValidStringFrom(input : String?) -> String{
+        if let input = input{
+            return input.isEmpty ? EmployeeConstant.notAvailable : input
+        }
+        return  EmployeeConstant.notAvailable
     }
-    return  EmployeeConstant.notAvailable
-}
 }

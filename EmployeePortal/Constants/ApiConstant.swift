@@ -7,5 +7,6 @@
 
 struct ApiConstants {
     static let EmployeeListUrl = "https://jsonplaceholder.typicode.com/users"
+    //create enum for all status
     static let SuccessStatusCode = 200
 }

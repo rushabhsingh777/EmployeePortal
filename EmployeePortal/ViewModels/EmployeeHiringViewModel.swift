@@ -9,24 +9,24 @@ import UIKit
 
 struct EmployeeHiringViewModel {
     
-    static func getUpdatedEmployeesList(employees : [EmployeeViewModel] , id: Int) -> ([EmployeeViewModel] , Int){
+    func getUpdatedEmployeesList(employees : [EmployeeViewModel] , id: Int) -> ([EmployeeViewModel] , Int){
         var updatedEmployees = employees
         if let index = employees.firstIndex(where: {$0.employeeId == id}) {
             let employeeToBeUpdated = employees[index]
-            updatedEmployees[index] = EmployeeHiringViewModel.getUpdatedEmployee(employee: employeeToBeUpdated)
+            updatedEmployees[index] = self.getUpdatedEmployee(employee: employeeToBeUpdated)
             return (updatedEmployees,index)
         }
         return (updatedEmployees,EmployeeConstant.defaultId)
     }
     
-    static func getUpdatedEmployee(employee : EmployeeViewModel) -> EmployeeViewModel {
+    func getUpdatedEmployee(employee : EmployeeViewModel) -> EmployeeViewModel {
         var updatedEmployee = employee
         updatedEmployee.isHired = !updatedEmployee.isHired
-        updatedEmployee.employeeStatus = EmployeeHiringViewModel.getHireStatus(employee: updatedEmployee)
+        updatedEmployee.employeeStatus = self.getHireStatus(employee: updatedEmployee)
         return updatedEmployee
     }
     
-    static func getHireStatus(employee : EmployeeViewModel) -> String {
+    func getHireStatus(employee : EmployeeViewModel) -> String {
         return employee.isHired ? EmployeeConstant.hired : EmployeeConstant.notHired
     }
     

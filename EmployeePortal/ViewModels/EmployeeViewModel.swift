@@ -48,6 +48,5 @@ struct EmployeeViewModel {
             return completeAddress
         }
         return EmployeeConstant.notAvailable
-        
     }
 }

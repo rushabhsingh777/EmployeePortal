@@ -11,10 +11,10 @@ extension EmployeeListViewController : HireButtonProtocol {
     
     func updateHireStatus(id: Int) {
         var indexToBeUpdated = EmployeeConstant.defaultId
-        (self.employeesList, indexToBeUpdated) = EmployeeHiringViewModel.getUpdatedEmployeesList(employees : self.employeesList! , id: id)
+        (self.employeesList, indexToBeUpdated) = EmployeeHiringViewModel().getUpdatedEmployeesList(employees : self.employeesList! , id: id)
         if indexToBeUpdated != EmployeeConstant.defaultId {
             self.updateRow(row: indexToBeUpdated, section: 0)
         }
     }
-   
+    
 }

@@ -8,7 +8,7 @@
 import UIKit
 
 class EmployeeTableViewCell: UITableViewCell {
-
+    
     @IBOutlet weak var employeeName: UILabel!
     @IBOutlet weak var hireButton: UIButton!
     @IBOutlet weak var contactDetail: UILabel!

@@ -27,9 +27,9 @@ class EmployeePortalTests: XCTestCase {
         let employeeViewModel = EmployeeViewModel(employee: employeeModel)
         
         XCTAssertEqual(employeeViewModel.employeeName, employeeModel.name, "Name is correct")
-        XCTAssertEqual(employeeViewModel.employeeCompany, company.name, "employeeCompany Name is correct")
+        XCTAssertEqual(employeeViewModel.employeeCompany, company.name, "Employee Company Name is correct")
         XCTAssertEqual(employeeViewModel.employeeStatus, EmployeeConstant.notHired, "Employee is not hired")
-        XCTAssertEqual(employeeViewModel.employeeEmailId, employeeModel.email, "employee email is correct")
+        XCTAssertEqual(employeeViewModel.employeeEmailId, employeeModel.email, "Employee email is correct")
     }
     
     func testInValidEmployeeViewModel(){
@@ -41,7 +41,6 @@ class EmployeePortalTests: XCTestCase {
         XCTAssertEqual(employeeViewModel.employeeCompany, EmployeeConstant.notAvailable, "Company name is not available")
         XCTAssertEqual(employeeViewModel.employeeStatus, EmployeeConstant.notHired, "Employee is not hired")
         XCTAssertEqual(employeeViewModel.employeeEmailId, employeeModel.email, "employee email is correct")
-        
         XCTAssertEqual(employeeViewModel.employeeContact, EmployeeConstant.notAvailable, "Contact is not available")
     }
     
